@@ -1,5 +1,8 @@
+"""Module providing a library to read HRF file from Hattrick Organizer."""
+
 
 class HrfEntry:
+    """Class representing an entry in HRF File"""
     id = ""
     value = ""
 
@@ -7,6 +10,7 @@ class HrfEntry:
         print("=>" + self.id + "=" + self.value)
 
 class HrfCategory:
+    """Class representing a category in HRF File"""
     id = ""
     entries = dict()
 
@@ -15,11 +19,12 @@ class HrfCategory:
         for value in self.entries.values():
             value.print()
 class HrfFile:
+    """Class representing an HRF File"""
     categories = dict()
 
     def read(self, filename):
         file = open(filename, 'r')
-        file_lines = file.readlines();
+        file_lines = file.readlines()
         current_category = None
         for file_line in file_lines:
             if len(file_line.strip()) > 0:
