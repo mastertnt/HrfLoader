@@ -1,6 +1,8 @@
 """Module providing a library to read HRF file from Hattrick Organizer."""
 import dataclasses
 from pprint import pformat
+
+
 @dataclasses.dataclass
 class HrfEntry:
     """Class representing an entry in HRF File"""
@@ -10,6 +12,7 @@ class HrfEntry:
     def __repr__(self):
         return pformat(vars(self), indent=4, width=1)
 
+
 @dataclasses.dataclass
 class HrfCategory:
     """Class representing a category in HRF File"""
@@ -17,10 +20,13 @@ class HrfCategory:
     entries = {}
 
     def __repr__(self):
-            print("***************" + self.id + "***************")
-            for value in self.entries.values():
-                print(value)
- 
+        result = ""
+        result += "***************" + self.id + "***************";
+        for value in self.entries.values():
+            result += value
+        return result
+
+
 class HrfFile:
     """Class representing an HRF File"""
     categories = {}
@@ -47,8 +53,10 @@ class HrfFile:
                                 current_category.entries[entry.id] = entry
 
     def __repr__(self):
+        result = ""
         for category in self.categories.values():
-            print(category)
+            result += category
+        return result
 
 
 # Press the green button in the gutter to run the script.
