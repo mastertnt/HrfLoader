@@ -21,9 +21,9 @@ class HrfCategory:
 
     def __repr__(self):
         result = ""
-        result += "***************" + self.id + "***************";
+        result.join("***************" + self.id + "***************")
         for value in self.entries.values():
-            result += value
+            result.join(value)
         return result
 
 
@@ -55,7 +55,7 @@ class HrfFile:
     def __repr__(self):
         result = ""
         for category in self.categories.values():
-            result += category
+            result.join(category)
         return result
 
 
